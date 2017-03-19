@@ -77,11 +77,22 @@ Tags are possible, but they are not meant to be used #instagram #style: #food #g
     tags: [mytag, othertag]
     ~~~
 
-4. (optional) Add the tag to the sidebar, by adding it to `sidebar_tags` in `_config.yml`.
-   They will appear in the listed order.
+### Navbar links
+
+Add a tag to the sidebar, by adding it to `sidebar_tags` in `_config.yml`.
+Tags will appear in the listed order.
 
    ~~~yml
    sidebar_tags: [mytag, othertag]
+   ~~~
+
+Pages with `layout: page` in the front-matter are listing below tags.
+Use `navidx` post attribute to control the listed order.
+
+   ~~~yml
+   layout: page
+   title: About
+   navidx: 1
    ~~~
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
