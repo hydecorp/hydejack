@@ -36,6 +36,14 @@
   <meta name="keywords" content="{{ site.keywords | default: page.keywords | join:',' }}">
 {% endif %}
 
+{% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@{{ author.social.twitter }}" />
+<meta name="twitter:title" content="{{ title }}" />
+<meta name="twitter:description" content="{{ description | strip_html | truncatewords:50 }}" />
+<meta name="twitter:image" content="{{ author.picture.src }}" />
+
 {% comment %}---------------------------
               LINKS
 ------------------------{% endcomment %}
