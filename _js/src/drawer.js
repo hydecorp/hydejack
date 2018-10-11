@@ -61,11 +61,14 @@ const REQUIREMENTS = new Set([
 // NOTE: Duplicated values from `_sass_/variables.scss`.
 const CONTENT_WIDTH_5 = 48;
 const CONTENT_MARGIN_5 = 4;
-const BREAK_POINT_3 = "(min-width: 64em)";
-const BREAK_POINT_DYNAMIC = "(min-width: 1666px)";
-
 const DRAWER_WIDTH = 21;
+const BREAK_POINT_3 = 64;
+
 const R_28 = CONTENT_WIDTH_5 / 2 + CONTENT_MARGIN_5;
+const BREAK_POINT_3_МQ = "(min-width: " + BREAK_POINT_3 + "em)";
+const BREAK_POINT_DYNAMIC_МQ = "(min-width: "
+  + (CONTENT_WIDTH_5 + 2 * CONTENT_MARGIN_5 + 2 * DRAWER_WIDTH) * 17
+  + "px)";
 
 const MOBILE = 1;
 const DESKTOP = 2;
@@ -144,17 +147,17 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       const size$ = createXObservable(ResizeObserver)(drawerEl).pipe(
         map(
           () =>
-            window.matchMedia(BREAK_POINT_DYNAMIC).matches
+            window.matchMedia(BREAK_POINT_DYNAMIC_MQ).matches
               ? LARGE_DESKTOP
-              : window.matchMedia(BREAK_POINT_3).matches
+              : window.matchMedia(BREAK_POINT_3_MQ).matches
                 ? DESKTOP
                 : MOBILE
         ),
         share(),
         startWith(
-          window.matchMedia(BREAK_POINT_DYNAMIC).matches
+          window.matchMedia(BREAK_POINT_DYNAMIC_MQ).matches
             ? LARGE_DESKTOP
-            : window.matchMedia(BREAK_POINT_3).matches
+            : window.matchMedia(BREAK_POINT_3_MQ).matches
               ? DESKTOP
               : MOBILE
         )
