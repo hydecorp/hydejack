@@ -50,7 +50,9 @@ author:
     rss:              http://www.geekpark.net/rss
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
-
+social:
+    email:   buffdemail@163.com
+    github:  https://github.com/buffzhou
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:       buff   
   © 2018. All rights reserved.
