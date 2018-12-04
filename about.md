@@ -1,11 +1,11 @@
 ---
 menu: true
-order: 4
+order: 5
 image: /assets/img/blog/hydejack-8.png
 ---
 
 # About
-## Hydejack
+## 欢迎大家fork Hydejack，本博客基于Hydejack
 
 The "Best Jekyll Theme by a Mile".
 {:.lead}
