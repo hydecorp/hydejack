@@ -1,0 +1,30 @@
+{% if site.hydejack.dark_mode.dynamic %}
+  <script>!function(w, d) {
+    var h = new Date().getHours();
+    var m = h <= {{ site.hydejack.dark_mode.sunrise | default:"6" }} || h >= {{ site.hydejack.dark_mode.sunset | default:"18" }} ? 'add' : 'remove';
+    d.body.classList[m]('dark-mode');
+  }(window, document);</script>
+{% endif %}
+
+{% unless page.redirect %}
+  <!--[if !IE]><!---->
+  <script>loadJSDeferred(document.getElementById('_hrefJS').href);</script>
+  {% include my-scripts.html %}
+  <!--<![endif]-->
+
+  {% include body/analytics.html %}
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      {% if site.hydejack.offline.enabled %}
+        navigator.serviceWorker.register(document.getElementById('_hrefSW').href)
+          .then(r => r.update())
+          .catch(() => {});
+      {% else %}
+        navigator.serviceWorker.getRegistration()
+          .then(r => r.unregister())
+          .catch(() => {});
+      {% endif %}
+    }
+  </script>
+{% endunless %}

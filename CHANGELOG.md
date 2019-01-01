@@ -1,7 +1,163 @@
----
-layout: page
-title: CHANGELOG
----
+# CHANGELOG
+
+## v8.1.1
+Sep 1 2018
+{:.heading.post-date}
+
+### Fixes
+* Fixed an issue that prevented the drawer from working on iOS 10.
+* Changing the page via push state will now also update the `link[rel=canonical]` tag.
+* Changing the page via push state will now also update the `meta[name=description]` tag.
+* Fixed an issue that prevented the JS from building on Netlify.
+
+## v8.1.0
+Aug 18 2018
+{:.heading.post-date}
+
+This release adds Dark Mode for Hydejack PRO customers.
+
+### Breaking
+* Removed cookie banner from free version
+* Removed offline support from free version
+
+In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version.
+As software licenses go, nobody is stopping you from using the old code, but updates will no longer be included.
+
+### Changed
+* The cookies banners is now showing at the bottom of the page and its background color is no longer transparent to increase visibility
+* Changed the default syntax theme from "GitHub" to "Atom One Light"
+* Adapted `figure` CSS class to accommodate different children, not just `img`s
+* `video` tags now have a `max-width` of 100%
+* Increased margin before headings to `5rem`, up from 4
+* Increased margin of `hr` elements.
+* Cookies banner can now be enabled without using Google Analytics
+* Clicking the cookie banner "Okay" button will now fire a `hy--cookies-ok` event on `document`, so that custom analytics solutions can plug in.
+* All Google Analytics code has been removed from Hydejack's core and moved to `_includes/body/analytics.js`.
+* All Disqus code has been removed from Hydejack's core and moved to `_includes/comments.html` and `_includes/my-comments.html`.
+* Using CSS Custom Properties instead of SASS variables for certain properties to enable style customization using only CSS.
+* Added shadow to sidebar
+* Navbar is longer positioned `fixed`
+
+### Added
+* [PRO] Added Dark Mode
+* `border` CSS class
+
+
+## v8.0.0
+Jul 16 2018
+{:.heading.post-date}
+
+So far Hydejack has been a decent Jekyll theme, but with v8 it really starts stand out among the competition: Beautiful and unique landing pages, lazy-loading images, and experimental offline support are just the most prominent new features.
+
+### Breaking
+* The expected format for sidebar images has changed.
+  A sidebar image should now be a full-screen ~16:10 image.
+
+  Comment: The sidebar can now be fully extended on desktop, which generally requires a large landscape image to fill the entire window.
+  To save bandwidth, you can blur the image on the left and right edges and save it as JPG.
+
+* The `about` and `welcome` layout no longer prepend the content with the author information.
+  Instead, the author info can be shown by adding the `<!--author-->` marker to the top of the file. You can also place it anywhere else.
+
+  Comment: Showing the author description on the top of the `welcome` and `about` layouts felt like an imposition and was a left-over from when I was developing Hydejack primarily for myself.
+
+* [PRO] The `welcome` layout no longer adds recent posts and projects to the bottom of the page. Instead, they have to be explicitly set using the `<!--posts-->` and `<!--projects-->` markers. The `content_separator` front matter opton is now ignored.
+
+  Comment: The old behavior felt arbitrary, and `<!--more-->` wasn't a good name to be replaced with recent projects ands posts.
+
+* Setting the accent color and sidebar image for an entire category/tag/author is no longer possible.
+  To achieve a similar effect, use [Front Matter defaults][ffd] instead.
+
+  E.g. to set the accent color and image for every post in the `hydejack` folder, use:
+
+  ~~~yml
+  defaults:
+    - scope:
+        path:         hydejack
+      values:
+        accent_color: rgb(38,139,210)
+        accent_image: /assets/img/hydejack-bg.jpg
+  ~~~
+
+  Comment: The code to find the color for a given page was complicated and slow (potentially iterating all categories/tags to find the right one).
+
+### Changed
+
+* The drawer now responds to mouse inputs.
+* The default heading font is now less bold. To restore the old behavior, edit (create if it's missing) `_sass/my-variables.scss` and add `$font-weight-heading: 700;`.
+* Hydejack now uses lazy-loading hy-img tags instead of regular `img` tags.
+  To revert to using regular images, set `hydejack.no_img` in the config file to `true`.
+* Cookie consent is now stored as a cookie (instead of `LocalStorage`) and expires after 1 year.
+* Scrolling to a fragment link is now smooth.
+* Font loading now works differently, and will be cancelled on slow connections.
+* The sidebar content is now centered.
+* The sidebar will now show the site's logo, which can be set in the config file under the `logo` key.
+* [PRO] Updated embedded Bootstrap to v4.
+* [PRO] Project cards now throw a shadow instead of having a border.
+
+### Added
+* Pages can now have the `cover` key in the front matter.
+  When set to `true`, the sidebar will be opened when visiting the page directly.
+  E.g. <https://hydejack.com/>{:.no-push-state}
+
+* Added a `_plugin` that automatically replaces `<img>` tags with lazy-loading `<hy-img>` tags. If you don't want images to load lazily, delete or rename the `_plugins` folder.
+  Note that this plugin will never run when building the site on GitHub Pages.
+
+  To get the most out of this plugin, it is recommended to provide the width and height of the image, e.g.
+
+  ~~~md
+  ![Some image](assets/img/some-img.png){:data-width="800" data-height="600"}
+  ~~~
+
+  This will cause hy-img to render a placeholder of 800 by 600 `px`, preventing the document height from changing after the image has finished loading.
+
+* Added experimental offline support via Service Workers. Use with care!
+  For details, [read the docs](docs/advanced.md#enabling-offline-support).
+
+* Added the `figure` CSS class, which allows images to have nicer-looking captions. E.g.
+
+  ~~~md
+  ![An image with a caption](https://placehold.it/800x50){:.lead}
+  A caption to an image.
+  {:.figure}
+  ~~~
+
+* Clicking on a footnote will give its corresponding text a subtle highlight.
+
+* [PRO] Projects can now have an optional `end_date` field in the front matter.
+  The `date` is treated as the start date in this case.
+
+### Fixes
+* The back button now works in combination with fragment links.
+
+[ffd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
+
+## v7.5.1
+Apr 2 2018
+{:.heading.post-date}
+
+### Changed
+* Moved from browserify to webpack
+* Updated ruby dependencies
+* Updated JS dependencies
+* Updated hy-push-state and hy-drawer to latest versions
+
+## v7.5.2
+Jul 10 2018
+{:.heading.post-date}
+
+* Fixed an issue that caused the `list` layout to be empty after upgrading Jekyll
+* Updated dependencies
+
+## v7.5.1
+Apr 2 2018
+{:.heading.post-date}
+
+### Changed
+* Moved from browserify to webpack
+* Updated ruby dependencies
+* Updated JS dependencies
+* Updated hy-push-state and hy-drawer to latest versions
 
 ## v7.5.0
 Dec 18 2017
@@ -248,7 +404,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Event names described in the scripting chapter have changed from `y-push-state-*` to `hy-push-state-*`,
   except `y-push-state-animationend`, which has been removed. See the [docs][pstate] for more.
 
-[pstate]: docs/7.5.0/scripts.md#registering-push-state-event-listeners
+[pstate]: docs/scripts.md#registering-push-state-event-listeners
 
 ### Changes
 * `image` has been renamed to `accent_image`, but `image` continues to work unless you add the `jekyll-seo-tag` plugin.
@@ -447,7 +603,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Reduced building time during development.
   Roughly 50% of the time was spent rebuilding the inline CSS, which is now built once and included via `link` tag.
   Production builds still inlines CSS, so the building speed remains unchanged.
-  For more on how to improve building speeds, [see here](docs/7.5.0/writing.md#a-word-on-building-speeds).
+  For more on how to improve building speeds, [see here](docs/writing.md#a-word-on-building-speeds).
 
 ### Design
 * The default background image is no longer anti-selling the theme...
@@ -885,9 +1041,9 @@ Oct 15 2013
 {:.heading.post-date}
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
-[migration]: docs/7.5.0/migration.md
-[writing]: docs/7.5.0/writing.md
-[scripts]: docs/7.5.0/scripts.md
+[migration]: docs/upgrade.md
+[writing]: docs/writing.md
+[scripts]: docs/scripts.md
 
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [PRO-license]: licenses/PRO.md

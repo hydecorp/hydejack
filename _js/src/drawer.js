@@ -1,5 +1,5 @@
 // # src / drawer.js
-// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,136 +14,304 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/* eslint-disable no-mixed-operators */
+
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
-import 'core-js/fn/function/bind';
+import "core-js/fn/function/bind";
 
-// We include our main component, hy-drawer,
-// in both the vanilla JS and the WebComponent version (will decide later which one to use).
-// Since they share most of their code, it's not a big deal in terms of file size.
-import { Set } from 'hy-drawer/src/common';
-import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
-import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
+import ResizeObserver from "resize-observer-polyfill";
 
-// Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { Observable } from 'rxjs/Observable';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
+import { createXObservable } from "hy-component/src/rxjs";
 
-// And some of our own helper functions/constants.
-import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
+import { Observable, fromEvent, NEVER, of } from "rxjs";
+
+import {
+  distinctUntilChanged,
+  map,
+  share,
+  skip,
+  startWith,
+  switchMap,
+  tap,
+  withLatestFrom,
+} from "rxjs/operators";
+
+// Some of our own helper functions/constants.
+import {
+  hasFeatures,
+  isSafari,
+  isFirefox,
+  isMobile,
+  isMobileSafari,
+  isUCBrowser,
+  hasCSSOM,
+} from "./common";
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
-  ...VANILLA_FEATURE_TESTS,
-  'cssremunit',
-  'classlist',
-  'eventlistener',
-  'matchmedia',
+  ...WEBCOMPONENT_FEATURE_TESTS,
+  "cssremunit",
+  "classlist",
+  "eventlistener",
+  "matchmedia",
 ]);
 
-// HACK: hard-coded SCSS break-point.
-const MEDIA_QUERY = '(min-width: 64em)';
+// NOTE: Duplicated values from `_sass_/variables.scss`.
+const CONTENT_WIDTH_5 = 48;
+const CONTENT_MARGIN_5 = 4;
+const BREAK_POINT_3 = "(min-width: 64em)";
+const BREAK_POINT_DYNAMIC = "(min-width: 1666px)";
 
-// ## Functions
-// TODO
-function resizeCallback() {
-  const isDesktop = window.matchMedia(MEDIA_QUERY).matches;
-  if (window._isDesktop !== isDesktop) {
-    window._isDesktop = isDesktop;
-    window._drawer.persistent = isDesktop;
-    window._drawer.opened = isDesktop;
-  }
+const DRAWER_WIDTH = 21;
+const R_28 = CONTENT_WIDTH_5 / 2 + CONTENT_MARGIN_5;
+
+const MOBILE = 1;
+const DESKTOP = 2;
+const LARGE_DESKTOP = 3;
+
+function rem() {
+  return parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-// Callback for clicking the menu btton. Will toggle the drawer when on mobile.
-function menuClickClallback(e) {
-  if (!window._isDesktop) {
-    e.preventDefault();
-    window._drawer.toggle();
-  }
+function calcDrawerWidth() {
+  return DRAWER_WIDTH * rem();
 }
+
+function calcDrawerWidthDynamic() {
+  return document.body.clientWidth / 2 - R_28 * rem();
+}
+
+const subscribeWhen = p$ => source => {
+  if (process.env.DEBUG && !p$) throw Error();
+  return p$.pipe(switchMap(p => (p ? source : NEVER)));
+};
 
 // Determins the range from which to draw the drawer in pixels, counted from the left edge.
 // It depends on the browser, e.g. Safari has a native guesture when sliding form the side,
 // so we ignore the first 35 pixels (roughly the range for the native guesture).
 function getRange() {
-  if (isMobileSafari && !navigator.standalone) {
-    return [35, 135];
-  }
+  if (isMobileSafari && !navigator.standalone) return [35, 150];
   return [0, 150];
 }
 
 // This function sets y-drawer up as a WebComponent.
 // First it sets the options as HTML attributes, then it `define`s the WebComponent.
-function setupWebComponent(drawerEl) {
-  if (window._isDesktop) drawerEl.setAttribute('opened', '');
-  if (window._isDesktop) drawerEl.setAttribute('persistent', '');
-  drawerEl.setAttribute('align', 'left');
-  drawerEl.setAttribute('range', getRange().join(','));
-  drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
-  drawerEl.setAttribute('prevent-default', '');
-
-  customElements.define('hy-drawer', HTMLDrawerElement);
+function defineWebComponent(drawerEl, opened) {
+  if (opened) drawerEl.setAttribute("opened", "");
+  if (isSafari) drawerEl.setAttribute("threshold", 0);
+  if (!isMobile) drawerEl.setAttribute("mouse-events", "");
+  if (isFirefox) drawerEl.removeAttribute("prevent-default"); // ignored by ff anyway
+  window.customElements.define("hy-drawer", HyDrawerElement);
   return drawerEl;
 }
 
-// This function sets y-drawer up as a vanilla JS class.
-function setupVanilla(drawerEl) {
-  return new Drawer(drawerEl, {
-    opened: window._isDesktop,
-    persistent: window._isDesktop,
-    align: 'left',
-    range: getRange(),
-    threshold: isSafari ? 0 : 10,
-    preventDefault: true,
-  });
+// The functions below add an svg graphic to the sidebar
+// that incidate that the sidebar can be drawn using touch gestures.
+function setupIcon() {
+  const img = document.getElementById("_hrefSwipeSVG");
+  if (img) {
+    const svg = document.createElement("img");
+    svg.id = "_swipe";
+    svg.src = img.href;
+    svg.alt = "Swipe image";
+    svg.addEventListener("click", () => window._drawer.close());
+    document.getElementById("_sidebar").appendChild(svg);
+  }
+}
+
+function removeIcon() {
+  const svg = document.getElementById("_swipe");
+  if (svg) svg.parentNode.removeChild(svg);
 }
 
 // ## Main
 // First, we determine if the drawer is enabled,
 // and whether the current user agent meets our requirements.
-// UC Browser has even more invasive native swipe guestures than iOS Safari,
-// (that ignore `preventDefault` on top of that...),
-// so we disable the component alltogether. UC Mini is fine though.
+//
+// Note that the UC Browser has even more invasive native swipe gestures than iOS Safari,
+// so we disable the component alltogether.
 if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
-  // Now we get a hold of some DOM elements
-  const drawerEl = document.getElementsByTagName('hy-drawer')[0];
-  const menuEl = document.getElementById('_menu');
+  requestIdleCallback(() => {
+    // First we get hold of some DOM elements.
+    const drawerEl = document.getElementsByTagName("hy-drawer")[0];
+    const menuEl = document.getElementById("_menu");
+    const sidebar = document.getElementById("_sidebar");
+    const content = document.querySelector(".sidebar-sticky");
 
-  // We check the media query to determine wheter the drawer is active or not
-  window._isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+    function setupDrawer() {
+      const size$ = createXObservable(ResizeObserver)(drawerEl).pipe(
+        map(
+          () =>
+            window.matchMedia(BREAK_POINT_DYNAMIC).matches
+              ? LARGE_DESKTOP
+              : window.matchMedia(BREAK_POINT_3).matches
+                ? DESKTOP
+                : MOBILE
+        ),
+        share(),
+        startWith(
+          window.matchMedia(BREAK_POINT_DYNAMIC).matches
+            ? LARGE_DESKTOP
+            : window.matchMedia(BREAK_POINT_3).matches
+              ? DESKTOP
+              : MOBILE
+        )
+      );
 
-  // Now we create the component.
-  // If we have Custom Elements and ShadowDOM (v1) we use the WebComponent.
-  window._drawer = 'customElements' in window && 'attachShadow' in Element.prototype ?
-    setupWebComponent(drawerEl) :
-    setupVanilla(drawerEl);
+      // An observable keeping track of the drawer width.
+      const drawerWidth$ = size$.pipe(
+        map(size => (size >= LARGE_DESKTOP ? calcDrawerWidthDynamic() : calcDrawerWidth()))
+      );
 
-  // Some styles change when the drawer is loaded.
-  // TODO: Check if we still need this. Also, maybe make this part of the component itself?
-  drawerEl.classList.add('loaded');
+      // An observable keeping track of the distance between
+      // the middle point of the screen and the middle point of the drawer.
+      const dist$ = drawerWidth$.pipe(
+        withLatestFrom(size$),
+        map(
+          ([drawerWidth, s]) =>
+            s >= DESKTOP
+              ? document.body.clientWidth / 2 - drawerWidth / 2
+              : document.body.clientWidth / 2
+        )
+      );
 
-  // You can uncomment the code below to lock document scrolling while sliding.
-  // However, it's not as good as `preventDefault`,
-  // as it won't prevent most mobile browsers from showing/hiding their addressbar,
-  // causing expensive reflows/repaints...
-  // NOTE: iOS Safari ignores this completely.
-  /*
-  if (!isSafari) {
-    drawerEl.addEventListener('hy-drawer-slidestart', () => {
-      document.body.style.overflowY = 'hidden';
-    });
+      // An observable that keeps track of the range from where the drawer can be drawn.
+      // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
+      const range$ = drawerWidth$.pipe(
+        withLatestFrom(size$),
+        map(([drawerWidth, size]) => (size >= DESKTOP ? [0, drawerWidth] : getRange()))
+      );
 
-    drawerEl.addEventListener('hy-drawer-slideend', () => {
-      document.body.style.overflowY = '';
-    });
-  }
-  */
+      // Sliding the drawer's content between the middle point of the screen,
+      // and the middle point of the drawer when closed.
+      Observable.create(observer => (drawerEl.moveCallback = x => observer.next(x)))
+        .pipe(withLatestFrom(dist$, size$))
+        .subscribe(([{ opacity }, dist, size]) => updateSidebar(size >= DESKTOP, dist, opacity));
 
-  // Adding the click callback to the menu button.
-  menuEl.addEventListener('click', menuClickClallback);
+      // Setting `will-change` at the beginning of an interaction, and remove at the end.
+      drawerEl.addEventListener("hy-drawer-prepare", () => {
+        if (hasCSSOM) {
+          sidebar.attributeStyleMap.set("will-change", "transform");
+          content.attributeStyleMap.set("will-change", "opacity");
+        } else {
+          sidebar.style.willChange = "transform";
+          content.style.willChange = "opacity";
+        }
+      });
 
-  // Adding the resize callback to the resize event, but with a small delay.
-  Observable::fromEvent(window, 'resize', { passive: true })
-    .subscribe(resizeCallback);
+      drawerEl.addEventListener("hy-drawer-transitioned", () => {
+        if (hasCSSOM) {
+          sidebar.attributeStyleMap.delete("will-change");
+          content.attributeStyleMap.delete("will-change");
+        } else {
+          sidebar.style.willChange = "";
+          content.style.willChange = "";
+        }
+      });
+
+      // Adding the click callback to the menu button.
+      // Calling `preventDefault` in iOS Safari, because otherwise it's causing the navbar to appear,
+      // which ruins the animation.
+      menuEl.addEventListener("click", e => {
+        if (isMobileSafari) e.preventDefault();
+        window._drawer.toggle();
+      });
+
+      // Keeping track of the opened state.
+      const opened$ = fromEvent(drawerEl, "hy-drawer-transitioned").pipe(
+        map(e => e.detail),
+        distinctUntilChanged(),
+        tap(opened => !opened && removeIcon())
+      );
+
+      // Close the drawer on popstate, i.e. the back button.
+      fromEvent(window, "popstate", { passive: true })
+        .pipe(subscribeWhen(opened$))
+        .subscribe(() => window._drawer.close());
+
+      // Save scroll position before the drawer gets initialized.
+      const scrollTop = window.pageYOffset || document.body.scrollTop;
+
+      // Start the drawer in `opened` state when the cover class is present,
+      // and the user hasn't started scrolling already.
+      const opened = drawerEl.classList.contains("cover") && scrollTop <= 0;
+
+      // HACK: uuuugly
+      drawerEl._peek$ = size$.pipe(
+        map(size => {
+          switch (size) {
+            case LARGE_DESKTOP:
+              return calcDrawerWidthDynamic();
+            case DESKTOP:
+              return calcDrawerWidth();
+            case MOBILE:
+              return 0.5 * rem();
+          }
+        })
+      );
+
+      // We need the height of the darwer in case we need to reset the scroll position
+      const drawerHeight = opened ? null : drawerEl.getBoundingClientRect().height;
+
+      drawerEl.addEventListener(
+        "hy-drawer-init",
+        () => {
+          // Show the icon indicating that the drawer can be drawn using touch gestures.
+          setupIcon();
+
+          // Add a class to incidate that the drawer has been initialized.
+          drawerEl.classList.add("loaded");
+
+          // Compensating for the change in layout after the drawer gets initialized.
+          if (drawerHeight && scrollTop >= drawerHeight) {
+            window.scrollTo(0, scrollTop - drawerHeight);
+          }
+        },
+        { once: true }
+      );
+
+      dist$
+        .pipe(
+          withLatestFrom(size$),
+          skip(1)
+        )
+        .subscribe(([dist, size]) =>
+          updateSidebar(
+            size >= DESKTOP,
+            dist,
+            typeof drawerEl.opacity !== "undefined" ? drawerEl.opacity : opened ? 1 : 0 // HACK
+          )
+        );
+
+      // Now we create the component.
+      window._drawer = defineWebComponent(drawerEl, opened);
+
+      // Keeping the drawer updated.
+      range$.subscribe(range => (drawerEl.range = range));
+    }
+
+    function updateSidebar(isDesktop, dist, opacity) {
+      const t = 1 - opacity;
+      if (hasCSSOM) {
+        const value = new CSSTransformValue([new CSSTranslate(CSS.px(dist * t), CSS.px(0))]);
+        sidebar.attributeStyleMap.set("transform", value);
+        content.attributeStyleMap.set("opacity", isDesktop ? 1 : opacity);
+      } else {
+        sidebar.style.transform = `translateX(${dist * t}px)`;
+        content.style.opacity = isDesktop ? 1 : opacity;
+      }
+    }
+
+    // HACK: Working around a quirk in webkit that sometomes causes
+    //       JS to execute before the CSS is loaded.
+    (function isCSSLoaded() {
+      if (getComputedStyle(drawerEl).getPropertyValue("--hy-drawer-width")) {
+        setupDrawer();
+      } else {
+        setTimeout(isCSSLoaded, 300);
+      }
+    })();
+  });
 }

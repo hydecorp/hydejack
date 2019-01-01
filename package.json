@@ -1,22 +1,22 @@
 {
   "name": "hydejack",
-  "version": "7.5.0",
-  "description": "Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).",
+  "version": "8.1.1",
+  "description": "The best Jekyll theme by a mile",
   "scripts": {
-    "clean": "rm -f assets/js/hydejack-$npm_package_version.js & rm -f _sass/**/__*/* & wait",
-    "test": "echo \"Warning: no test specified\" && exit 0",
+    "clean": "rm -f assets/js/hydejack-*.js",
+    "test": "exit 0",
+    "format": "prettier --write \"_js/src/**/*.js\"",
     "build": "npm run build:js & npm run build:css & wait",
-    "build:js": "mkdir -p assets/js && cat _includes/header.txt > assets/js/hydejack-$npm_package_version.js; cross-env NODE_ENV=production browserify _js/src/index.js -g browserify-css -g [ stringify --extensions [.html .svg] ] -g babelify | uglifyjs -c -m >> assets/js/hydejack-$npm_package_version.js",
+    "build:js": "webpack --mode production",
     "build:css": ".scripts/build-css.js",
     "watch": "npm run watch:js & npm run watch:css",
-    "watch:js": "mkdir -p assets/js && watchify -d _js/src/index.js -g browserify-css -g [ stringify --extensions [.html .svg] ] -g babelify -o assets/js/hydejack-$npm_package_version.js",
+    "watch:js": "webpack --watch --mode development --progress --colors",
     "watch:css": "npm run build:css && onchange '_sass/**/*.scss' -e '_sass/**/__*/*' -- npm run build:css '{{changed}}'",
     "serve": "bundle exec jekyll serve --port=$npm_package_config_port --host=0.0.0.0",
-    "lint": "eslint _js/src",
     "dev": "npm run watch & npm run serve",
-    "prepare": "npm run lint && npm run test && npm run clean && npm run build",
+    "prepare": "npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml",
-    "version": ".scripts/version.js && npm run build && git add ."
+    "version": "npm run format && npm run build && git add ."
   },
   "config": {
     "port": 4000
@@ -25,35 +25,31 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
-    "babel-plugin-transform-function-bind": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2016": "^6.24.1",
-    "babelify": "^8.0.0",
-    "browserify": "^14.5.0",
-    "browserify-css": "^0.14.0",
-    "cross-env": "^5.1.1",
-    "envify": "^4.1.0",
-    "eslint": "^4.11.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.5.1",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "color": "^3.0.0",
+    "dedent": "^0.7.0",
     "json2yaml": "^1.1.0",
-    "onchange": "^3.2.1",
+    "onchange": "^4.1.0",
+    "prettier": "^1.14.2",
     "re-template-tag": "^2.0.1",
-    "stringify": "^5.1.0",
-    "uglify-js": "^3.1.10",
-    "watchify": "^3.9.0"
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4",
+    "yargs": "^12.0.1"
   },
   "dependencies": {
-    "color": "^2.0.1",
-    "core-js": "^2.5.1",
+    "@webcomponents/webcomponentsjs": "2.0.4",
+    "core-js": "^2.5.7",
     "elem-dataset": "^1.1.1",
-    "hy-drawer": "^1.0.0-hydejack.12",
-    "hy-push-state": "^1.0.0-hydejack.12",
-    "rxjs": "^5.5.2",
+    "hy-drawer": "^1.0.0-pre.25",
+    "hy-img": "^1.0.0-hydejack.10",
+    "hy-push-state": "^1.0.0-pre.25",
+    "intersection-observer": "^0.5.0",
+    "resize-observer-polyfill": "^1.5.0",
+    "rxjs": "^6.3.0",
+    "smoothscroll-polyfill": "^0.4.3",
     "web-animations-js": "^2.3.1"
   },
   "repository": {
@@ -63,5 +59,14 @@
   "bugs": {
     "url": "https://github.com/qwtel/hydejack/issues"
   },
-  "homepage": "https://github.com/qwtel/hydejack#readme"
+  "homepage": "https://hydejack.com/",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "prettier": {
+    "printWidth": 100,
+    "trailingComma": "es5"
+  }
 }
