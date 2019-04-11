@@ -33,11 +33,11 @@ author1:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
-    twitter:         <username>
-    github:          <username>
-    # email:           <mail@domain.tld>
+#    twitter:         <username>
+    github:          Lucas12138
+    email:           lucasliu12138@gmail.com
     # rss:             https://<url>/feed.xml
-    # facebook:        <username>
+    facebook:        Lucas12138
     # google:          <number>
     # vk:              <username>
     # youtube:         <string_string_string>
@@ -64,7 +64,7 @@ author1:
     # npm:             <username>
     # hackernews:      <username>
     # trello:          <firstnamelastname>
-    # linkedin:        <firstname-lastname-string>
+    linkedin:        lucas-zizhe-liu-034b34103
     # xing:            <firstname_lastname_counter>
     # blogger:         <number>
     # delicious:       <username>
@@ -73,19 +73,19 @@ author1:
     # download:        <url>
 
 # Another author (optional)
-author2:
-  name:              <firtname> <lastname>
-  email:             <mail@domain.tld>
-  about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-    Open `_data/authors.yml` to edit this text.
-  picture:           https://placehold.it/128x128
-  twitter:           <username>
-  github:            <username>
-  accent_color:      '#268bd2'
-  accent_image:
-    background:      '#202020'
-    overlay:         false
+#author2:
+#  name:              <firtname> <lastname>
+#  email:             <mail@domain.tld>
+#  about:             |
+#    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+#    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+#    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+#
+#    Open `_data/authors.yml` to edit this text.
+#  picture:           https://placehold.it/128x128
+#  twitter:           <username>
+#  github:            <username>
+#  accent_color:      '#268bd2'
+#  accent_image:
+#    background:      '#202020'
+#    overlay:         false
