@@ -20,10 +20,18 @@ A quicker, cleaner way to get started blogging with [Hydejack](https://hydejack.
 4. Go to **Settings** again, look for **GitHub Pages**, set **Source** to **master branch**.
 5. Click **Save** and wait for GitHub to set up your new blag.
 
-## What's next?
-* Open files and read the comments
-* Read the [docs](https://hydejack.com/docs/)
-* Buy the [PRO version](https://hydejack.com/download/) to get the project and resume layout, newsletter subscription box, custom forms, and more.
+## TODO
+**Update the following posts:**
+* ~~2017-08-04-hello-world.md~~
+* 2017-11-15-sample-sending-email.md
+* 2017-11-15-tips-of-mysql.md
+* 2017-11-16-sample-jdbc-good-practice.md
+* 2017-11-17-will-neo-be-the-next-big-thing.md
+* 2017-12-09-95-865-unstructured-data-analytics.md
+* 2018-01-14-database-management-review-framework.md
+* 2018-07-25-example-jdbc-better-practicestream-sql-request.md
+* 2018-11-05-17-682-java-ee-web-application.md
+* 2019-03-02-some-notes-on-spark-data-engineering-on-the-cloud.md
 
 [^1]: Requires Bundler. Install with `gem install bundler`.
 
