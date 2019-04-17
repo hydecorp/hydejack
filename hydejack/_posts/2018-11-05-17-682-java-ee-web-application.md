@@ -79,7 +79,7 @@ There&#8217;re 2 basic kinds of web contents, static and dynamic. Although they&
 
 In most cases, the connection will be maintained via IP stack as below:
 
-<img class="alignnone size-medium wp-image-211" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-2.30.19-PM-300x192.png" alt="" width="300" height="192" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-2.30.19-PM-300x192.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-2.30.19-PM.png 424w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-211" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-2.30.19-PM-300x192.png" alt="" width="300" height="192" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-2.30.19-PM-300x192.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-2.30.19-PM.png 424w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 To interact with web applications, the most common approach is using the browser. So what is exactly a browser? Or what methods will it provide? A browser can manage protocol, such as http and ftp. It&#8217;s a HTML rendering engine so that we can see the beautiful pages. It can do caching, has support for javascript and java applets and it has the OS integration or interface.
 
@@ -103,19 +103,19 @@ Apache and Nginx are the most popular web servers. For Apache, there&#8217;re so
 
 Here&#8217;re some common admistration considerations for HTTP servers:
 
-<img class="alignnone size-medium wp-image-213" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-7.56.48-PM-300x244.png" alt="" width="300" height="244" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-7.56.48-PM-300x244.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-7.56.48-PM.png 469w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-213" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-7.56.48-PM-300x244.png" alt="" width="300" height="244" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-7.56.48-PM-300x244.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-7.56.48-PM.png 469w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
-HTML is the document that HTTP uses most. By definition, HTML, hyper-text markup language, is a device independent way to represents documents. It can specify the format in the document, like titles, paragraphs, colors etc. It can also include reference documents, such as images, applets etc. Form is a very important component, which translate user input into HTTP requests to the specific URI. XHTML is an standardization of HTML. It&#8217;s more restrictive and easier to parse and process. HTML5 is the new version of HTML. It provides better support for medias, like audio and video and has removed the legacy elements. Here&#8217;s a comparasion in details: [HTML vs. XHTML vs HTML5.](https://hackr.io/blog/difference-between-html-html5-xhtml) Another very important thing is **HTML** **only support GET and POST**. If method is not specified in the html, GET is by default (without javascript involved). You cannot trust any HTML, because javascript can change the behavior.
+HTML is the document that HTTP uses most. By definition, HTML, hyper-text markup language, is a device independent way to represents documents. It can specify the format in the document, like titles, paragraphs, colors etc. It can also include reference documents, such as images, applets etc. Form is a very important component, which translate user input into HTTP requests to the specific URI. XHTML is an standardization of HTML. It&#8217;s more restrictive and easier to parse and process. HTML5 is the new version of HTML. It provides better support for medias, like audio and video and has removed the legacy elements. Here&#8217;s a comparasion in details: [HTML vs. XHTML vs HTML5.](https://hackr.io/blog/difference-between-html-html5-xhtml) Another very important thing is **HTML only support GET and POST**. If method is not specified in the html, GET is by default (without javascript involved). You cannot trust any HTML, because javascript can change the behavior.
 
-The goal of CSS (cascading style sheets) is the separation of document structure and formatting. We should use HTML for document structure and CSS for formatting. CSS can specify or override the style of elements. Ususally, it can modify the formatting of fonts, hrefs, tables, hover etc. The CSS structure is key value pairs, <name>: <value>. It can be defined in-line using &#8220;style&#8221; attribute, in the HTML header or a separate file. CSS selector is a way to aggregate style pairs for a element, class or ID.<img class="alignnone size-medium wp-image-215" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.33.08-PM-300x189.png" alt="" width="300" height="189" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.33.08-PM-300x189.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.33.08-PM.png 551w" sizes="(max-width: 300px) 100vw, 300px" />
+The goal of CSS (cascading style sheets) is the separation of document structure and formatting. We should use HTML for document structure and CSS for formatting. CSS can specify or override the style of elements. Ususally, it can modify the formatting of fonts, hrefs, tables, hover etc. The CSS structure is key value pairs, <name>: <value>. It can be defined in-line using &#8220;style&#8221; attribute, in the HTML header or a separate file. CSS selector is a way to aggregate style pairs for a element, class or ID.<img class="alignnone size-medium wp-image-215" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.33.08-PM-300x189.png" alt="" width="300" height="189" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.33.08-PM-300x189.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.33.08-PM.png 551w" sizes="(max-width: 300px) 100vw, 300px" />
 
-<div> and <span> are tags, which do nothing except adding style to the content. The difference between them is <div> will break lines and <span> is in-line. For more details of CSS: [CSS resources.](https://www.w3schools.com/css/)
+&lt;div&gt; and &lt;span&gt; are tags, which do nothing except adding style to the content. The difference between them is &lt;div&gt; will break lines and &lt;span&gt; is in-line. For more details of CSS: [CSS resources.](https://www.w3schools.com/css/)
 
-Javascript is interpreted (no need to compile) and loosely/dynamically typed. The functions in javascript are also objects, which can also have properties. It can be defined as the content in the <script> tag or a separate file. HTML can have javascript events, such as onload, <span style="font-size: 1rem;">onclick, </span><span style="color: inherit; font-size: inherit;">onfocus, onblur, onmouseover etc. Those can invoke javascript methods when they&#8217;re triggered.</span>
+Javascript is interpreted (no need to compile) and loosely/dynamically typed. The functions in javascript are also objects, which can also have properties. It can be defined as the content in the &lt;script&gt; tag or a separate file. HTML can have javascript events, such as onload, <span style="font-size: 1rem;">onclick, </span><span style="color: inherit; font-size: inherit;">onfocus, onblur, onmouseover etc. Those can invoke javascript methods when they&#8217;re triggered.</span>
 
 DOM (document object model) is a tree of nodes represent the HTML document. It contains 3 kinds of nodes: element, attribute and text. Fields can be used to retrieve related nodes, e.g. parentNode, firstChild, lastChild, childNodes, nextSibling, previousSibling. Methods can be applied to change the element, such as appendChild(), removeChild(), modifying attributes like onclick, href, style.
 
-<img class="alignnone size-medium wp-image-216" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.47.34-PM-300x149.png" alt="" width="300" height="149" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.47.34-PM-300x149.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.47.34-PM.png 597w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-216" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.47.34-PM-300x149.png" alt="" width="300" height="149" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.47.34-PM-300x149.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-24-at-8.47.34-PM.png 597w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 The document object is a predefined javascript variable and the root of the tree. It has some useful methods and variables: getElementById(),getElementsByName(),getElementsByTagName(), URL, cookie.
 
@@ -123,11 +123,11 @@ The document object is a predefined javascript variable and the root of the tree
 
 A reason that many people love Java is that it&#8217;s such a flexiable and adaptabel language that can almost run in all environments, terminal, IDE, browsers(applet), web servers(servlets) and even electronic cards. As long as there&#8217;s JVM, Java should be able to function.
 
-<img class="alignnone size-medium wp-image-219" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.34-PM-300x153.png" alt="" width="300" height="153" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.34-PM-300x153.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.34-PM.png 499w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-219" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.34-PM-300x153.png" alt="" width="300" height="153" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.34-PM-300x153.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.34-PM.png 499w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 _Java in Browsers (applets)_
 
-<img class="alignnone wp-image-218" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.40-PM-300x185.png" alt="" width="418" height="258" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.40-PM-300x185.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.40-PM.png 498w" sizes="(max-width: 418px) 100vw, 418px" /> 
+<img class="alignnone wp-image-218" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.40-PM-300x185.png" alt="" width="418" height="258" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.40-PM-300x185.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.34.40-PM.png 498w" sizes="(max-width: 418px) 100vw, 418px" /> 
 
 _Java in Web Servers (servlets)_
 
@@ -141,13 +141,14 @@ In short, Tomcat is a standing by web container that handle requests and make re
 
 javax.servlet.Servlet is an Interface has the following methods:
 
-<img class="alignnone wp-image-220" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.52.11-PM-300x165.png" alt="" width="389" height="214" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.52.11-PM-300x165.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.52.11-PM.png 592w" sizes="(max-width: 389px) 100vw, 389px" /> 
+<img class="alignnone wp-image-220" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.52.11-PM-300x165.png" alt="" width="389" height="214" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.52.11-PM-300x165.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.52.11-PM.png 592w" sizes="(max-width: 389px) 100vw, 389px" /> 
 
 javax.servlet.GenericServlet implements the Servlet interface and makes it easier to build customized servlets over different protocols. For HTTP, tomcat has already built one based on GenericServlet for us, which is javax.servlet.http.HttpServlet (extending the GenericServlet class). Here&#8217;re some methods for your servlets (if extending HttpServlet) to override:
 
-<img class="alignnone size-medium wp-image-221" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-11.09.23-PM-300x87.png" alt="" width="300" height="87" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-11.09.23-PM-300x87.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-11.09.23-PM.png 494w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-221" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-11.09.23-PM-300x87.png" alt="" width="300" height="87" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-11.09.23-PM-300x87.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-11.09.23-PM.png 494w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
-javax.servlet.http.HttpServletRequest is the interface for the http requests. There&#8217;re some common methods that are good to know: **getHeaderNames(), getHeader(name), getQueryString(), getParameterNames(), getParameter(name), getCookie(), getSession()** etc.
+javax.servlet.http.HttpServletRequest is the interface for the http requests. There&#8217;re some common methods that are good to know: **getHeaderNames(), getHeader(name), getQueryString(), 
+getParameterNames(), getParameter(name), getCookie(), getSession()** etc.
 
 Similarly, javax.servlet.http.HttpServletResponse is the interface for http responses. Some selected methods are: **setContentType(), getWriter(), getOutputStream(), sendError(statusCode), sendRedirect(url), addCookie(cookie)** etc.
 
@@ -155,9 +156,9 @@ Now, let&#8217;s talk about the structure of a web application. **WebContent** i
 
 In terms of tomcat administration, it has a manage interface(home page), XML files in conf and WEB\_INF and $CATALINA\_HOME/logs. The logs mainly have 3 types:
 
-  * **stdout*.log** contains System.out output
-  * **manager*.log** output from Manager app
-  * **catalina*.log** info on apps loaded
+  * **stdout\*.log** contains System.out output
+  * **manager\*.log** output from Manager app
+  * **catalina\*.log** info on apps loaded
 
 The web application can be easily exported by any modern IDE as a war file. The IDE can run the war file directly. But, the war file can be easily deployed to a tomcat container without IDE as well. It only need 2 steps:
 
@@ -186,7 +187,7 @@ To help tackle this problem, keyword _synchronized_ helps. The synchronized sta
 
 In tomcat, [Coyote connector](https://tomcat.apache.org/tomcat-4.1-doc/config/coyote.html) is used to manage connections, thread pool etc. A pool of threads helps save the time to instantiate the threads and garbage collect the finished threads. It pre-instantiates a pool of threads. When a requests come, it will dispatch one thread to process the request. It can be configured in **conf/server.xml**.
 
-<img class="alignnone wp-image-223" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-8.42.56-PM-300x51.png" alt="" width="324" height="55" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-8.42.56-PM-300x51.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-8.42.56-PM.png 557w" sizes="(max-width: 324px) 100vw, 324px" /> 
+<img class="alignnone wp-image-223" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-8.42.56-PM-300x51.png" alt="" width="324" height="55" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-8.42.56-PM-300x51.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-8.42.56-PM.png 557w" sizes="(max-width: 324px) 100vw, 324px" /> 
 
 When the code logic involves copying objects, we need to be more careful on the concurrency issues. We used use defensive copy: choose whether to use [shallow copy or deep copy](https://www.geeksforgeeks.org/deep-shallow-lazy-copy-java-examples/). It is not only necessary for multithreading scenarios. A not very defensive copy constantly leads to bugs in many other scenarios as well.
 
@@ -196,7 +197,7 @@ What&#8217;s the purpose of cookies and sessions? It can origin to a question, w
 
 Basically, the server sends a cookie(including some data) to the browser. The browser will have a bite(without understanding the data), send it back and let the server know who ate the cookie.
 
-<img class="alignnone size-medium wp-image-226" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.50-PM-300x211.png" alt="" width="300" height="211" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.50-PM-300x211.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.50-PM.png 691w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-225" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.59-PM-300x214.png" alt="" width="300" height="214" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.59-PM-300x214.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.59-PM.png 680w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-226" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.50-PM-300x211.png" alt="" width="300" height="211" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.50-PM-300x211.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.50-PM.png 691w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-225" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.59-PM-300x214.png" alt="" width="300" height="214" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.59-PM-300x214.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-26-at-9.14.59-PM.png 680w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Then, the identification problem is solved. Cookies have headers and attributes. Some common cookies attributes are:
 
@@ -235,17 +236,7 @@ For java statements, it should be put into <span style="font-size: 1rem;"><% an
   * HttpServletRequest **request**
   * HttpSession **session**
   * JspWriter **out** (similar to PrintWriter)
-<li class="page" title="Page 13">
-  <div class="section">
-    <div class="layoutArea">
-      <div class="column">
-        <p>
-          HttpServletResponse <strong>response</strong>
-        </p>
-      </div>
-    </div>
-  </div>
-</li>
+  * HttpServletResponse **response**
 
 Besides statements and expressions, we can go further! <%! &#8230; %> can be used to define methods and inner class. We can also import packages with <%@ page import=&#8221;&#8230;&#8221; %>. Or add comments with <%&#8211; &#8230; &#8211;>.
 
@@ -270,12 +261,12 @@ if(o == null) o = application.getAttribute("user");
   We can also use dot to access JavaBeans&#8217; fields. For example, $(user.userName) equivalent in java:
 </p>
 
-<pre class="brush: java; title: ; notranslate" title="">Class&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;?&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; c = o.getClass();
+<pre class="brush: java; title: ; notranslate" title="">Class c = o.getClass();
 Method m = c.getMethod("getUserName");
 Object value = m.invoke(o);
 </pre>
 
-## <span id="SQL_JDBC"> SQL & JDBC</span> {.p1}
+## <span id="SQL_JDBC"> SQL & JDBC</span>
 
 Database is crucial in most web applications. But, it may also introduce new issues, such as backup, security, detecting/repairing corruption, and performance. Before the first database came to alive, people relied on the file systems in terms of persistence matters. However, the performance is pretty bad and it&#8217;s quite hard to manage.
 
@@ -283,11 +274,11 @@ Then, relational database is invented. It&#8217;s using a **b-tree** data struct
 
 SQL provides CRUD(create, read, update, delete) operation abilities and some extra functions, such as JOIN, ORDER BY, GROUP BY etc. SQL sounds like a uniform language across different RDBMS. But, it does have some very small differences among them.
 
-<img class="alignnone size-medium wp-image-229" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-3.32.42-PM-300x175.png" alt="" width="300" height="175" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-3.32.42-PM-300x175.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-3.32.42-PM.png 612w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-229" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-3.32.42-PM-300x175.png" alt="" width="300" height="175" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-3.32.42-PM-300x175.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-3.32.42-PM.png 612w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Next, we&#8217;re approaching this kind of architecture. JDBC driver will handle the low-level interactions with the database. We only need to take care of higher-level operations, connection(pool), query, transaction etc.
 
-java.sql.Connection and java.sql.Statement are two most important interfaces. For the Statement, **executeQuery** is responsible for SELECT, SHOW, DESCRIBE, etc and **executeUpdate** should be related to INSERT, DELETE, UPDATE, CREATE, DROP. For a specific example, you can refer to [Example: JDBC Good Practice](http://www.lucas-liu.com/2017/11/16/sample-jdbc-good-practice/).
+java.sql.Connection and java.sql.Statement are two most important interfaces. For the Statement, **executeQuery** is responsible for SELECT, SHOW, DESCRIBE, etc and **executeUpdate** should be related to INSERT, DELETE, UPDATE, CREATE, DROP. For a specific example, you can refer to [Example: JDBC Good Practice]({{site.baseurl}}/2017/11/16/sample-jdbc-good-practice/).
 
 There&#8217;re some tricks to consider when working with JDBC:
 
@@ -301,7 +292,7 @@ As we know, Java is an object-oriented programming language. It&#8217;s class or
 
 There&#8217;re at least 2 kinds of conventions to create objects representing data, [POJO and JavaBean](https://www.geeksforgeeks.org/pojo-vs-java-beans/). In simple words, JavaBean is POJO with more restrictions. We use JavaBean as a component model. Then it should satisfy the following conditions ([more details](https://docstore.mik.ua/orelly/java-ent/jnut/ch06_02.htm)):
 
-<img class="alignnone size-medium wp-image-231" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM-300x169.png" alt="" width="300" height="169" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM-300x169.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM-768x432.png 768w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM.png 776w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-231" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM-300x169.png" alt="" width="300" height="169" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM-300x169.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM-768x432.png 768w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-28-at-7.35.48-PM.png 776w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 **Reflection** is the best friend of JavaBean. People usually use reflection (java.lang.Class) to find the class of a JavaBean. In practice, it can be used with DAO, form beans, JSP EL, GUI, and RPC etc.
 
@@ -311,7 +302,7 @@ Because JavaBean is an object. Then, it&#8217;s possible to have some problem wh
   2. Implement Cloneable (require bean to have the function)
   3. Use reflection (preferable)
 
-DAO (data access object) is another class to maintain the database. It&#8217;s another abstraction layer to handle all the data/bean related operations. It will make the code more reusable. It&#8217;s not necessarily restricted to RDBMS and JDBC. DAO can also store data into memory, files, NoSQL databases and any kind of data sources. It just depends on the implementation. A DAO example can be accessed here: StreamSqlRequest [blog](http://www.lucas-liu.com/2018/07/25/example-jdbc-better-practicestream-sql-request/) and [code](https://github.com/Lucas12138/StreamSqlRequest/tree/master/src/main/java/cmu/db).
+DAO (data access object) is another class to maintain the database. It&#8217;s another abstraction layer to handle all the data/bean related operations. It will make the code more reusable. It&#8217;s not necessarily restricted to RDBMS and JDBC. DAO can also store data into memory, files, NoSQL databases and any kind of data sources. It just depends on the implementation. A DAO example can be accessed here: StreamSqlRequest [blog]({{site.baseurl}}/2018/07/25/example-jdbc-better-practicestream-sql-request/) and [code](https://github.com/Lucas12138/StreamSqlRequest/tree/master/src/main/java/cmu/db).
 
 Writing Java code to achieve the SQL equivalent on the JavaBeans will require a lot of work. Imagine how many fields we need to take care of. Therefore, people created the ORM tools, object-relational mapping. The ORM tool will automatically create the database table, provide at least basic CRUD functions, handle concurrency issues by supporting the transaction and have reasonable performance. Jeff has a very good and easy-to-use ORM tool: [GenericDAO](http://www.jeffeppinger.com/GenericDAO/). For production level web applications, [Hibernate](http://hibernate.org/) is the tool.
 
@@ -419,7 +410,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                   </p>
                                                   
                                                   <p>
-                                                    <img class="alignnone size-medium wp-image-238" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.04-PM-300x214.png" alt="" width="300" height="214" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.04-PM-300x214.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.04-PM.png 636w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-237" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.12-PM-300x208.png" alt="" width="300" height="208" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.12-PM-300x208.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.12-PM.png 639w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-236" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.21-PM-300x209.png" alt="" width="300" height="209" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.21-PM-300x209.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.21-PM.png 629w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-235" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.30-PM-300x212.png" alt="" width="300" height="212" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.30-PM-300x212.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.30-PM.png 632w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-234" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.39-PM-300x214.png" alt="" width="300" height="214" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.39-PM-300x214.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.39-PM.png 635w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-233" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.50-PM-300x216.png" alt="" width="300" height="216" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.50-PM-300x216.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.50-PM.png 643w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                    <img class="alignnone size-medium wp-image-238" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.04-PM-300x214.png" alt="" width="300" height="214" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.04-PM-300x214.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.04-PM.png 636w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-237" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.12-PM-300x208.png" alt="" width="300" height="208" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.12-PM-300x208.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.12-PM.png 639w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-236" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.21-PM-300x209.png" alt="" width="300" height="209" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.21-PM-300x209.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.21-PM.png 629w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-235" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.30-PM-300x212.png" alt="" width="300" height="212" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.30-PM-300x212.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.30-PM.png 632w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-234" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.39-PM-300x214.png" alt="" width="300" height="214" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.39-PM-300x214.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.39-PM.png 635w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-233" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.50-PM-300x216.png" alt="" width="300" height="216" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.50-PM-300x216.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-10.33.50-PM.png 643w" sizes="(max-width: 300px) 100vw, 300px" />
                                                   </p>
                                                   
                                                   <p>
@@ -463,7 +454,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                 </p>
                                                 
                                                 <p>
-                                                  <img class="alignnone size-medium wp-image-239" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-11.08.49-PM-300x197.png" alt="" width="300" height="197" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-11.08.49-PM-300x197.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-11.08.49-PM.png 544w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                  <img class="alignnone size-medium wp-image-239" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-11.08.49-PM-300x197.png" alt="" width="300" height="197" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-11.08.49-PM-300x197.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-29-at-11.08.49-PM.png 544w" sizes="(max-width: 300px) 100vw, 300px" />
                                                 </p>
                                                 
                                                 <p>
@@ -574,7 +565,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-241" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.44.15-AM-300x176.png" alt="" width="300" height="176" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.44.15-AM-300x176.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.44.15-AM.png 618w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-241" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.44.15-AM-300x176.png" alt="" width="300" height="176" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.44.15-AM-300x176.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.44.15-AM.png 618w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -590,7 +581,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-242" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.58.37-AM-300x124.png" alt="" width="300" height="124" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.58.37-AM-300x124.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.58.37-AM.png 497w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-242" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.58.37-AM-300x124.png" alt="" width="300" height="124" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.58.37-AM-300x124.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-9.58.37-AM.png 497w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -602,7 +593,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-243" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.10.10-AM-300x141.png" alt="" width="300" height="141" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.10.10-AM-300x141.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.10.10-AM.png 523w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-243" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.10.10-AM-300x141.png" alt="" width="300" height="141" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.10.10-AM-300x141.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.10.10-AM.png 523w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -610,7 +601,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-244" src="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.11.37-AM-300x177.png" alt="" width="300" height="177" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.11.37-AM-300x177.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.11.37-AM.png 513w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-244" src="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.11.37-AM-300x177.png" alt="" width="300" height="177" srcset="{{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.11.37-AM-300x177.png 300w, {{site.baseurl}}/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-10.11.37-AM.png 513w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -646,11 +637,11 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-246" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.18-PM-300x130.png" alt="" width="300" height="130" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.18-PM-300x130.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.18-PM.png 549w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-246" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.18-PM-300x130.png" alt="" width="300" height="130" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.18-PM-300x130.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.18-PM.png 549w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-247" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.51-PM-300x149.png" alt="" width="300" height="149" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.51-PM-300x149.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.51-PM.png 618w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-247" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.51-PM-300x149.png" alt="" width="300" height="149" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.51-PM-300x149.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.19.51-PM.png 618w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -658,15 +649,15 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-248" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.40-PM-300x213.png" alt="" width="300" height="213" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.40-PM-300x213.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.40-PM.png 634w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-248" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.40-PM-300x213.png" alt="" width="300" height="213" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.40-PM-300x213.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.40-PM.png 634w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-249" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.58-PM-300x167.png" alt="" width="300" height="167" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.58-PM-300x167.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.58-PM.png 664w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-249" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.58-PM-300x167.png" alt="" width="300" height="167" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.58-PM-300x167.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.24.58-PM.png 664w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-250" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.25.14-PM-300x202.png" alt="" width="300" height="202" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.25.14-PM-300x202.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.25.14-PM.png 657w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-250" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.25.14-PM-300x202.png" alt="" width="300" height="202" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.25.14-PM-300x202.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.25.14-PM.png 657w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -674,7 +665,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-251" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.30.28-PM-300x180.png" alt="" width="300" height="180" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.30.28-PM-300x180.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.30.28-PM.png 754w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-251" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.30.28-PM-300x180.png" alt="" width="300" height="180" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.30.28-PM-300x180.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.30.28-PM.png 754w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -698,7 +689,7 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-252" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.33.35-PM-300x112.png" alt="" width="300" height="112" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.33.35-PM-300x112.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.33.35-PM.png 612w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-252" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.33.35-PM-300x112.png" alt="" width="300" height="112" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.33.35-PM-300x112.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.33.35-PM.png 612w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
@@ -725,11 +716,11 @@ The transaction system will guarantee the **ACID** properties. Here&#8217;s a br
                                                               </ol>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-253" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.53.30-PM-300x203.png" alt="" width="300" height="203" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.53.30-PM-300x203.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.53.30-PM.png 669w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-253" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.53.30-PM-300x203.png" alt="" width="300" height="203" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.53.30-PM-300x203.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.53.30-PM.png 669w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>
-                                                                <img class="alignnone size-medium wp-image-254" src="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.54.18-PM-300x210.png" alt="" width="300" height="210" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.54.18-PM-300x210.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.54.18-PM.png 751w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                <img class="alignnone size-medium wp-image-254" src="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.54.18-PM-300x210.png" alt="" width="300" height="210" srcset="{{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.54.18-PM-300x210.png 300w, {{site.baseurl}}/wp-content/uploads/2018/11/Screen-Shot-2018-11-04-at-7.54.18-PM.png 751w" sizes="(max-width: 300px) 100vw, 300px" />
                                                               </p>
                                                               
                                                               <p>

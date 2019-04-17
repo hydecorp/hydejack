@@ -9,7 +9,7 @@ permalink: /2018/07/25/example-jdbc-better-practicestream-sql-request/
 categories:
   - Java
 ---
-Months before, I gave an [example](http://www.lucas-liu.com/2017/11/16/sample-jdbc-good-practice/) about JDBC &#8220;good&#8221; practice. To be honest, I have been prepared to learn some better practices in the future. Because that one is too basic. I know there may not be a best practice of JDBC existing. But, I did learn some lessons from CMU courses and an internship in Japan. I would like to show you some interesting ideas. If you want to access the code, please feel free to check it [here](https://github.com/Lucas12138/StreamSqlRequest).
+Months before, I gave an [example]({{site.baseurl}}/2017/11/16/sample-jdbc-good-practice/) about JDBC &#8220;good&#8221; practice. To be honest, I have been prepared to learn some better practices in the future. Because that one is too basic. I know there may not be a best practice of JDBC existing. But, I did learn some lessons from CMU courses and an internship in Japan. I would like to show you some interesting ideas. If you want to access the code, please feel free to check it [here](https://github.com/Lucas12138/StreamSqlRequest).
 
 1) ResultSet and PreparedStatement always keep close to each other. Therefore, we can make them into a class, **DBResult**. Besides, normally, we need to keep track of affected rows number and generated keys. So, we include them in that class as well.
 

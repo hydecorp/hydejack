@@ -159,23 +159,23 @@ Here&#8217;s a use case of co-occurrences.
 
 Assume we are looking at a picture of zebra and grass and there&#8217;re only black, white and green pixels. Then we start counting: for each pixel, look at 4 neighboring pixels, compare the values and add the values to a table.
 
-<img class="alignnone wp-image-101" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM-300x75.png" alt="" width="348" height="87" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM-300x75.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM-768x192.png 768w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM.png 785w" sizes="(max-width: 348px) 100vw, 348px" /> 
+<img class="alignnone wp-image-101" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM-300x75.png" alt="" width="348" height="87" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM-300x75.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM-768x192.png 768w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.16.07-PM.png 785w" sizes="(max-width: 348px) 100vw, 348px" /> 
 
 Now, think of the bag of words model. We take [green, green], [green, white], [green, black]&#8230; into the bag. There will be 5750 cards in the bag. And we can calculate the probabilities of P(green, white), P(white, black), P(white) etc.
 
 Then we can use **pointwise mutual information (PMI)** to measure surprise. The higher PMI means more surprising. The formula for PMI is as follows.
 
-<img class="alignnone size-medium wp-image-102" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.29.21-PM-300x118.png" alt="" width="300" height="118" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.29.21-PM-300x118.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.29.21-PM.png 353w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-102" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.29.21-PM-300x118.png" alt="" width="300" height="118" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.29.21-PM-300x118.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-1.29.21-PM.png 353w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 P(A, B) represents A and B co-occurring. P(A) is A occurring. P(B) is B occurring. If A and B are independent, P(A, B) = P(A) P(B) and PMI = 0.
 
 In practice, it&#8217;s helpful to generalize PMI. We can add a positive tune parameter to it.
 
-<img class="alignnone size-medium wp-image-106" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.19.13-PM-300x92.png" alt="" width="300" height="92" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.19.13-PM-300x92.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.19.13-PM.png 375w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-106" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.19.13-PM-300x92.png" alt="" width="300" height="92" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.19.13-PM-300x92.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.19.13-PM.png 375w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 PMI is used to measure one pair of entities. To measure all pairs we can use **Phi-square** and **Chi-square**. Its formula is as follows.
 
-<img class="alignnone size-medium wp-image-105" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.07.56-PM-300x83.png" alt="" width="300" height="83" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.07.56-PM-300x83.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.07.56-PM.png 458w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-105" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.07.56-PM-300x83.png" alt="" width="300" height="83" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.07.56-PM-300x83.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-23-at-8.07.56-PM.png 458w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Chi-square = N * Phi-square, where N is the total number of occurrences like 5750 cards before.
 
@@ -213,11 +213,11 @@ In terms of similarity, there&#8217;s usually not a &#8220;best&#8221; way to de
 
   * Cosine similarity:
 
-<img class="alignnone size-medium wp-image-109" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.06.22-AM-300x79.png" alt="" width="300" height="79" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.06.22-AM-300x79.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.06.22-AM.png 481w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-109" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.06.22-AM-300x79.png" alt="" width="300" height="79" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.06.22-AM-300x79.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.06.22-AM.png 481w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
   * Euclidean distance:
 
-<img class="alignnone size-medium wp-image-110" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.12.35-AM-300x69.png" alt="" width="300" height="69" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.12.35-AM-300x69.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.12.35-AM.png 512w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-110" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.12.35-AM-300x69.png" alt="" width="300" height="69" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.12.35-AM-300x69.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-24-at-10.12.35-AM.png 512w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 For comparing similarities of **time series**, we need to align them first. Think of shifting one along x-axis to align with another. Then the distance can be the area between the two.
 
@@ -267,17 +267,17 @@ A better approach is considering both RSS and between-cluster variation.
 
 Let W = RSS,
 
-<img class="alignnone size-medium wp-image-117" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.19.27-PM-300x80.png" alt="" width="300" height="80" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.19.27-PM-300x80.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.19.27-PM.png 433w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-117" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.19.27-PM-300x80.png" alt="" width="300" height="80" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.19.27-PM-300x80.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.19.27-PM.png 433w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 n = total number of points
 
-<img class="alignnone size-full wp-image-116" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.20.07-PM.png" alt="" width="195" height="59" /> 
+<img class="alignnone size-full wp-image-116" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.20.07-PM.png" alt="" width="195" height="59" /> 
 
 This approach is called **CH index**,** **where CH stands for <span style="font-size: 1rem;">Calinski and Harabasz.</span>
 
 Another good approach is **gap statistic**.
 
-<img class="alignnone size-medium wp-image-118" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.30.31-PM-300x59.png" alt="" width="300" height="59" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.30.31-PM-300x59.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.30.31-PM.png 338w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-118" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.30.31-PM-300x59.png" alt="" width="300" height="59" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.30.31-PM-300x59.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.30.31-PM.png 338w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 It uses **Mean Squared Error (MSE)** and **Maximum Likelihood Estimation (MLE)**. Here&#8217;s a paper about [gap statistic](https://web.stanford.edu/~hastie/Papers/gap.pdf).
 
@@ -297,7 +297,7 @@ There&#8217;re many ways to define &#8220;close&#8221; in agglomerative clusteri
 
 Finally, these two can be visualized with a **dendrogram**. Like this.
 
-<img class="alignnone size-medium wp-image-121" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.52.19-PM-300x178.png" alt="" width="300" height="178" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.52.19-PM-300x178.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.52.19-PM.png 676w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-121" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.52.19-PM-300x178.png" alt="" width="300" height="178" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.52.19-PM-300x178.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-2.52.19-PM.png 676w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 ## <span id="Before_You_Choose_a_Clustering_Method">Before You Choose a Clustering Method</span>
 
@@ -322,7 +322,7 @@ So, what if we want to automatically select k? The Bayesian nonparametric varian
 
 There&#8217;re also some methods to measure the result. For a specific topic, look at _m_ most probable words(&#8220;top words&#8221;):
 
-<img class="alignnone size-medium wp-image-124" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM-300x116.png" alt="" width="300" height="116" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM-300x116.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM-768x297.png 768w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM.png 849w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-124" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM-300x116.png" alt="" width="300" height="116" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM-300x116.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM-768x297.png 768w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-26-at-8.02.27-PM.png 849w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Beyond LDA and HDP, there&#8217;re also many other topic modeling methods. For example, correlated topic models, Pachinko allocation, biterm topic models, anchor word topic models, dynamic topic models&#8230;
 
@@ -363,22 +363,23 @@ What if we want to separate non-linearly separable data points?
 
 Using kernels!
 
-<img class="alignnone size-medium wp-image-126" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-12.55.48-AM-300x141.png" alt="" width="300" height="141" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-12.55.48-AM-300x141.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-12.55.48-AM.png 311w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-126" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-12.55.48-AM-300x141.png" alt="" width="300" height="141" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-12.55.48-AM-300x141.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-12.55.48-AM.png 311w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 The rough idea is basically taking data into higher dimension by kernel methods. Then the data may be linearly separable in higher dimension.
 
 Some example kernels are as follows:
 
-<img class="alignnone size-medium wp-image-127" src="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-1.00.21-AM-300x90.png" alt="" width="300" height="90" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-1.00.21-AM-300x90.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-1.00.21-AM.png 574w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-127" src="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-1.00.21-AM-300x90.png" alt="" width="300" height="90" srcset="{{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-1.00.21-AM-300x90.png 300w, {{site.baseurl}}/wp-content/uploads/2017/11/Screen-Shot-2017-11-27-at-1.00.21-AM.png 574w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 ### <span id="Naive_Bayes">Naive Bayes</span>
 
 Unlike kNN calculating by distance and SVM calculating by margin, Naive Bayes takes advantage of probability theory, Bayes&#8217; Theorem specifically.
-
+```aidl
 P(h|d) = (P(d|h) * P(h)) / P(d)
+```
 
-  * **P(h|d)** is the probability of hypothesis h given the data d. This is called the posterior probability.
-  * **P(d|h)** is the probability of data d given that the hypothesis h was true.
+  * **P(h\|d)** is the probability of hypothesis h given the data d. This is called the posterior probability.
+  * **P(d\|h)** is the probability of data d given that the hypothesis h was true.
   * **P(h)** is the probability of hypothesis h being true (regardless of the data). This is called the prior probability of h.
   * **P(d)** is the probability of the data (regardless of the hypothesis).
 
@@ -388,7 +389,9 @@ Assume we are classifying people as male or female. And we have the features lik
 
 Then based on the theorem,
 
+```aidl
 p(male|v) = p(v|male) * p(male) / p(v)
+```
 
 It will be feasible to calculate. Also, if we are using this approach, one important assumption is that it assumes each feature is conditionally independent of others.
 
@@ -414,13 +417,13 @@ So how to measure the performance? Only using accuracy may not be a very good ap
 
 **Confusion Matrix:**
 
-<img class="alignnone size-medium wp-image-133" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.26-AM-300x141.png" alt="" width="300" height="141" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.26-AM-300x141.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.26-AM.png 573w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-133" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.26-AM-300x141.png" alt="" width="300" height="141" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.26-AM-300x141.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.26-AM.png 573w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 We can calculate precision-recall and f1-score as follows.
 
-<img class="alignnone size-medium wp-image-132" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.38-AM-300x149.png" alt="" width="300" height="149" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.38-AM-300x149.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.38-AM.png 530w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-132" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.38-AM-300x149.png" alt="" width="300" height="149" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.38-AM-300x149.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.38-AM.png 530w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
-<img class="alignnone size-medium wp-image-131" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.50-AM-300x159.png" alt="" width="300" height="159" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.50-AM-300x159.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.50-AM.png 543w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-131" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.50-AM-300x159.png" alt="" width="300" height="159" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.50-AM-300x159.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-12.59.50-AM.png 543w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Normally, the higher the precision, recall and f1-score are means the better performance.
 
@@ -444,7 +447,7 @@ It&#8217;s very easy for decision trees to move from classification to regressio
 
 To choose what kind of decision trees to use, we can refer to this picture.
 
-<img class="alignnone wp-image-134" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-1.53.45-AM-300x249.png" alt="" width="328" height="272" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-1.53.45-AM-300x249.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-1.53.45-AM.png 531w" sizes="(max-width: 328px) 100vw, 328px" /> 
+<img class="alignnone wp-image-134" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-1.53.45-AM-300x249.png" alt="" width="328" height="272" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-1.53.45-AM-300x249.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-06-at-1.53.45-AM.png 531w" sizes="(max-width: 328px) 100vw, 328px" /> 
 
 ### <span id="Random_Forest_and_Extremely_Randomized_Trees">Random Forest and Extremely Randomized Trees</span>
 
@@ -545,11 +548,11 @@ print('Test accuracy:', test_acc)
 
 The basic idea of CNN is quite straight-forward. It&#8217;s baiscally using a **filter**(or **kernel**) to scan the image, from left to right, top to down. It will calculate the dot product and finally output a smaller image.
 
-<img class="alignnone size-medium wp-image-150" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.05-PM-300x183.png" alt="" width="300" height="183" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.05-PM-300x183.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.05-PM.png 514w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-150" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.05-PM-300x183.png" alt="" width="300" height="183" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.05-PM-300x183.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.05-PM.png 514w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Different kernels may have different values, which gives them different functions. For example, it can be used for blurring an image or finding horizontal edges. And the kernels are actually unknown and are learned.
 
-<img class="alignnone size-medium wp-image-149" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.36-PM-300x187.png" alt="" width="300" height="187" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.36-PM-300x187.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.36-PM.png 527w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-149" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.36-PM-300x187.png" alt="" width="300" height="187" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.36-PM-300x187.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-09-at-6.32.36-PM.png 527w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Input image&#8217;s dimensions include height, width and depth(number of channels, e.g. RGB can be viewed as 3 channels). And after the conv2d layer, which has k kernels of 3x3xd, the output will be a stack of images, also known as feature maps. Output dimensions include height, width and k. And the k will be the next layer&#8217;s channel or depth.
 
@@ -565,11 +568,11 @@ Two common RNN layers in keras are **SimpleRNN** and **LSTM**. The difference b
 
 _A standard RNN:_
 
-<img class="alignnone size-medium wp-image-152" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM-300x107.png" alt="" width="300" height="107" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM-300x107.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM-768x274.png 768w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM.png 795w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-152" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM-300x107.png" alt="" width="300" height="107" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM-300x107.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM-768x274.png 768w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.31-AM.png 795w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 _LSTM:_
 
-<img class="alignnone wp-image-151" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM-300x98.png" alt="" width="312" height="102" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM-300x98.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM-768x251.png 768w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM.png 861w" sizes="(max-width: 312px) 100vw, 312px" /> 
+<img class="alignnone wp-image-151" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM-300x98.png" alt="" width="312" height="102" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM-300x98.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM-768x251.png 768w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-12.25.42-AM.png 861w" sizes="(max-width: 312px) 100vw, 312px" /> 
 
 RNN is likely to play with other neural networks. For example, dealing with video, it will put a CNN before RNN naturally and add a dense layer as classifier at the end. For text sentiment analysis, we should put an **embedding layer** (common approaches for this include word2vec and GloVe) before RNN, which will turn words into vector representations that are semantically meaningful, followed by a dense layer as classifier as well.
 
@@ -581,11 +584,11 @@ Gradient descent is about finding the parameters W, which lead to minium loss. I
 
 _1D:_
 
-<img class="alignnone size-medium wp-image-155" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.32-AM-300x189.png" alt="" width="300" height="189" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.32-AM-300x189.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.32-AM.png 589w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-155" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.32-AM-300x189.png" alt="" width="300" height="189" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.32-AM-300x189.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.32-AM.png 589w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 _2D:_
 
-<img class="alignnone size-medium wp-image-154" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.44-AM-300x199.png" alt="" width="300" height="199" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.44-AM-300x199.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.44-AM.png 513w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-154" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.44-AM-300x199.png" alt="" width="300" height="199" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.44-AM-300x199.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.20.44-AM.png 513w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 ### <span id="Dealing_with_Small_Datasets">Dealing with Small Datasets</span>
 
@@ -599,6 +602,6 @@ This one basically means using existing pre-trained neural net. When it&#8217;s 
 
 In the end, it&#8217;s been a very great course! It covered from the very basic concepts to some higher level approaches, combining theory as well as practice. I would like to use this picture to sum up.
 
-<img class="alignnone size-medium wp-image-156" src="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.46.24-AM-300x195.png" alt="" width="300" height="195" srcset="http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.46.24-AM-300x195.png 300w, http://www.lucas-liu.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.46.24-AM.png 560w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-156" src="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.46.24-AM-300x195.png" alt="" width="300" height="195" srcset="{{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.46.24-AM-300x195.png 300w, {{site.baseurl}}/wp-content/uploads/2017/12/Screen-Shot-2017-12-10-at-1.46.24-AM.png 560w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Thanks, George! Ciao!

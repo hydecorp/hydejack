@@ -25,7 +25,7 @@ For the ACC Spark project, it&#8217;s doing ETL on some large English files. The
 
 # 3. Workflow diagram
 
-<img class="wp-image-268 alignnone" src="http://www.lucas-liu.com/wp-content/uploads/2019/03/acc-spark-etl-workflow-300x249.png" alt="" width="478" height="397" srcset="http://www.lucas-liu.com/wp-content/uploads/2019/03/acc-spark-etl-workflow-300x249.png 300w, http://www.lucas-liu.com/wp-content/uploads/2019/03/acc-spark-etl-workflow-768x638.png 768w, http://www.lucas-liu.com/wp-content/uploads/2019/03/acc-spark-etl-workflow.png 930w" sizes="(max-width: 478px) 100vw, 478px" /> 
+<img class="wp-image-268 alignnone" src="{{site.baseurl}}/wp-content/uploads/2019/03/acc-spark-etl-workflow-300x249.png" alt="" width="478" height="397" srcset="{{site.baseurl}}/wp-content/uploads/2019/03/acc-spark-etl-workflow-300x249.png 300w, {{site.baseurl}}/wp-content/uploads/2019/03/acc-spark-etl-workflow-768x638.png 768w, {{site.baseurl}}/wp-content/uploads/2019/03/acc-spark-etl-workflow.png 930w" sizes="(max-width: 478px) 100vw, 478px" /> 
 
 Based on the ETL requirements and the performance tips, the ETL application was split into 4 jobs. They&#8217;re mapping to the **count**, **collectAsMap**, **collect**, **saveAsTextFile** actions respectively.
 

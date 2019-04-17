@@ -63,7 +63,7 @@ In short,  superkey is an attribute or a set of attributes that can identify ea
 
 While developing a database model, we need to translate the business rules into **conceptual** model first. Then, we can design **logical** model based on the conceptual model. Finally, we will develop the **physical** model. The differences between those three are shown in the table below.
 
-<img class="alignnone size-medium wp-image-178" src="http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-4.31.26-PM-300x204.png" alt="" width="300" height="204" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-4.31.26-PM-300x204.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-4.31.26-PM.png 397w" sizes="(max-width: 300px) 100vw, 300px" /> 
+<img class="alignnone size-medium wp-image-178" src="{{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-4.31.26-PM-300x204.png" alt="" width="300" height="204" srcset="{{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-4.31.26-PM-300x204.png 300w, {{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-4.31.26-PM.png 397w" sizes="(max-width: 300px) 100vw, 300px" /> 
 
 Here are some tips related to **ER diagram**:
 
@@ -151,7 +151,7 @@ Notice: higher level normal forms satisfied the conditions of lower level normal
         </ul>
         
         <p>
-          <img class="alignnone size-medium wp-image-180" style="font-size: 1rem;" src="http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.21-PM-300x182.png" alt="" width="300" height="182" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.21-PM-300x182.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.21-PM.png 449w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-179" src="http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.32-PM-300x167.png" alt="" width="300" height="167" srcset="http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.32-PM-300x167.png 300w, http://www.lucas-liu.com/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.32-PM.png 467w" sizes="(max-width: 300px) 100vw, 300px" />
+          <img class="alignnone size-medium wp-image-180" style="font-size: 1rem;" src="{{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.21-PM-300x182.png" alt="" width="300" height="182" srcset="{{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.21-PM-300x182.png 300w, {{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.21-PM.png 449w" sizes="(max-width: 300px) 100vw, 300px" /><img class="alignnone size-medium wp-image-179" src="{{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.32-PM-300x167.png" alt="" width="300" height="167" srcset="{{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.32-PM-300x167.png 300w, {{site.baseurl}}/wp-content/uploads/2018/01/Screen-Shot-2018-01-14-at-5.20.32-PM.png 467w" sizes="(max-width: 300px) 100vw, 300px" />
         </p>
         
         <h1>
