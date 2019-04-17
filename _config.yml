@@ -49,6 +49,8 @@ author:
 menu:
   - title:             Blog
     url:               /hydejack/
+  - title:             Categories
+    url:               /categories/
   - title:             About
     url:               /about/
 
