@@ -10,7 +10,19 @@ categories:
   - Web Application
 ---
 
-# Blog Migration - From Wordpress To Jekyll
+Contents
+
+- Introduction
+- Migration steps
+   * 1\. Use the exporter plugin (on Wordpress admin page)
+   * 2\. Install the jekyll
+   * 3\. Find a cool theme
+   * 4\. Follow the theme’s README instructions and set up Github pages
+   * 5\. Copy the posts from the export folder to the new local Jekyll repo
+   * 6\. Make some changes to the starting template
+   * 7\. Update the posts
+   * 8\. Bind to the DNS (using AWS Route 53 in my case)
+
 # Introduction
 
 Wordpress and Jekyll are both very handy tools to manage contents. But, they do share some differences.
