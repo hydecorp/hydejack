@@ -469,23 +469,26 @@ To build a completely new from, you can use [the same CSS classes as Bootstrap](
 ## Enabling Dark Mode*
 Buyers of the PRO version have access to a dark-themed version of Hydejack.
 
-Dark mode can be enabled in `config.yml` under the `hydejack` key and has three settings and two adjustments:
+Dark mode behaviour can be customised in `config.yml` under the `hydejack` key and has three settings and two adjustments:
 
 ```yml
 hydejack:
   dark_mode:
+    always:  false
     dynamic: true
     sunrise: 6
     sunset:  18
     icon:    true
-    always:  false
 ```
 
-Setting `dynamic`, will enable dark mode based on the client's local time (unlike location-based sunset calculations, this approach does not require a permission form the user). You can adjust `sunrise` and `sunset` to change when to show the light/dark theme.
+Setting `always` will cause dark mode to become the default theme at all times (combine with `dynamic: false`).
 
-Setting `icon` will show a switch to alternate between the light and dark mode at the top of the page.
+Setting `dynamic`, will enable dark mode based on the client's local time (unlike location-based sunset calculations, this approach does not require a permission from the user). Adjust `sunrise` and `sunset` to determine when to show the light/dark theme. 
 
-Finally, setting `always` will cause dark mode to become the default theme at all times (combine with `dynamic: false`).
+**NOTE**: Users with a dark mode setting activated for their operating system will always see Hydejack's dark mode theme (if enabled). Their system's dark mode setting overrides Hydejack's `dynamic` dark mode setting.
+{:.message}
+
+Finally, the `icon` setting will show a toggle switch at the top of the page to let users alternate between light and dark mode.
 
 Continue with [Basics](basics.md){:.heading.flip-title}
 {:.read-more}
