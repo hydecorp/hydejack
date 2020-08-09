@@ -3,6 +3,8 @@
 
 html {
   --accent-color: {{ color }};
+  --accent-color-transparent:  #{transparentize({{ color }}, 0.5)};
+  --accent-color-transparent-darkened:  #{transparentize(darken({{ color }}, 30%), 0.2)};
   --accent-color-faded: #{fade-out({{ color }}, 0.5)};
   --accent-color-darkened: #{darken({{ color }}, 7.5%)};
   --theme-color: {{ theme_color }};
