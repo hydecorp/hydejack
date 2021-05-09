@@ -1,0 +1,68 @@
+---
+# Author: Gabriele Marini
+
+layout: base
+---
+
+
+<article class="page" role="article">
+  <header>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% include components/message.html text=page.description hide=page.hide_description %}
+  </header>
+  
+  {{ content }}
+
+  <div class="photo-feed">
+
+  {% assign photolist = site.data.photos %}
+  {% for photo in photolist.photos %}
+      {% if photo.file %}
+          {% if photo.highlight %}
+              <article class='photo-card' style="flex: 0 1 auto;">
+          {% else %}
+              <article class='photo-card'>
+          {% endif %}
+              <div class='photo-card-img img'>
+                  <img data-ignore src='{{ photolist.preview_folder }}{{ photo.file }}' loading='lazy'/>
+              </div>
+      {% else %}  
+          <article class='photo-card multiple multi-{{ photo.files.size }}'>
+              <div class='photo-card-img img'>
+              {% for file in photo.files %}
+                  <img data-ignore src='{{ photolist.preview_folder }}{{ file }}' loading='lazy'/>
+              {% endfor %}    
+              </div>
+      {% endif %}
+      <a href='{{ photo.url }}' class='no-hover no-print-link photo-card-caption'>
+          {% if photo.title.size > 0 %}
+              <div class='img-title'> <h3>{{ photo.title }}</h3></div>
+          {% endif %}
+          <div class='img-descr'> <p> {{ photo.caption }} </p> </div>
+      </a>     
+  {% if photo.location %}
+      <div class="location"> <span class="icon-location" style="font-size: 0.9rem;"> </span> {{ photo.location }}</div>
+  {% endif %}
+  </article>  
+  {% endfor %}    
+  </div>
+</article>
+
+  
+{% assign addons = page.addons | default:site.hydejack.post_addons %}
+{% unless addons %}{% assign addons = "about,newsletter,related,random" | split:"," %}{% endunless %}
+{% for addon in addons %}
+  {% case addon %}
+  {% when 'about' %}
+     {% include_cached components/about.html author=page.author %}
+  {% when 'newsletter' %}
+    {% include if-non-null try="pro/newsletter.html" %}
+  {% when 'related' %}
+    {% include if-non-null try="pro/related-posts.html" fallback="components/related-posts.html" %}
+  {% when 'random' %}
+    {% include if-non-null try="pro/random-posts.html" %}
+  {% when 'comments' %}
+    {% include body/comments.html %}
+  {% else %}
+  {% endcase %}
+{% endfor %}

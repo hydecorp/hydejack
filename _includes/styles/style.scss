@@ -83,6 +83,8 @@
   @import "hydejack/_katex.pre.scss";
   @import "hydejack/_footer.pre.scss";
 
+  @import "hydejack/_photo-feed.scss";
+
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
     @import "hydejack/_mark-external.pre.scss";
   {% endunless %}
