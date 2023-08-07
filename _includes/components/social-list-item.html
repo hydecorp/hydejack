@@ -22,6 +22,10 @@
       {% assign name = "GitHub" %}
       {% assign icon = "icon-github" %}
       {% assign prep = "https://github.com/" %}
+    {% elsif platform == "discord" %}
+      {% assign name = "Discord" %}
+      {% assign icon = "icon-bubble" %}
+      {% assign prep = "https://discord.gg/" %}
     {% endif %}
   {% endunless %}
 

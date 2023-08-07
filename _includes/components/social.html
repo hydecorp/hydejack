@@ -15,6 +15,11 @@
       {% include components/social-list-item.html platform="github" username=github_username %}
     {% endif %}
 
+    {% assign discord_server = author.discord.server | default: author.discord | default:site.discord.server | default:site.discord | default:site.discord_server %}
+    {% if discord_server %}
+      {% include components/social-list-item.html platform="discord" username=discord_server %}
+    {% endif %}
+
     {% assign email = author.email | default: site.email %}
     {% if email %}
       {% include components/social-list-item.html platform="email" username=email %}
