@@ -1,0 +1,24 @@
+---
+layout: page
+title: Calls
+permalink: /calls/
+---
+{% include left-tab.html %}
+<br>
+
+This is a first announcement only. The first Call for Papers is expected in November 2023 and registration will be open as from March 2024. The follow-up calls will list keynote speakers, conference chairs and members of the programme committee once confirmed.
+
+<h2 style="color:#99cc00;">Organisation and Organising Committee</h2>
+The First International Conference on Natural Language Processing and Artificial Intelligence for Cyber Security (NLPAICS’2024) is organised by the Lancaster University UCREL NLP research group. 
+
+(we shall add names of organising committee members in due course)
+
+<h2 style="color:#99cc00;">Programme Committee</h2>
+(currently blank; we shall add names of PC members in due course)
+
+<h2 style="color:#99cc00;">Additional Reviewers</h2>
+(currently blank; we shall add names of PC members in due course)
+
+<h2 style="color:#99cc00;">Advisory Committee</h2>
+(currently blank; we shall add names of PC members in due course)
+

@@ -1,0 +1,26 @@
+---
+layout: page
+title: Dates
+permalink: /dates/
+---
+{% include left-tab.html %}
+<br>
+
+Information on the conference schedule, including submission and notification deadlines, will be provided at the end of November
+
+The first call for papers (to be distributed in November 2023) will provide details on the types of submissions and the submission procedure. The first call will also provide information on the conference schedule, including submission and notification deadlines.
+
+<h2 style="color:#99cc00;">Organisation and Organising Committee</h2>
+The First International Conference on Natural Language Processing and Artificial Intelligence for Cyber Security (NLPAICS’2024) is organised by the Lancaster University UCREL NLP research group. 
+
+(we shall add names of organising committee members in due course)
+
+<h2 style="color:#99cc00;">Programme Committee</h2>
+(currently blank; we shall add names of PC members in due course)
+
+<h2 style="color:#99cc00;">Additional Reviewers</h2>
+(currently blank; we shall add names of PC members in due course)
+
+<h2 style="color:#99cc00;">Advisory Committee</h2>
+(currently blank; we shall add names of PC members in due course)
+

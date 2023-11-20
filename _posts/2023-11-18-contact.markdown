@@ -1,0 +1,20 @@
+---
+layout: page
+title: Contact Us
+permalink: /contact/
+---
+
+Please do not hesitate to contact us with any queries or questions you may have about the conference.
+
+Lancaster University
+<br>
+Lancaster
+<br>
+United Kingdom
+<br>
+LA1 4YW
+<br>
+
+{% include contact-info.html %}
+
+{% include left-tab.html %}

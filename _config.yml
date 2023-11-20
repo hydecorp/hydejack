@@ -1,6 +1,13 @@
-lang:                  en
-title:                 Hydejack
-copyright:             © 2021. All rights reserved.
+
+title: NLPAICS 2024
+email:
+description: >- # this means to ignore newlines until "baseurl:"
+  Natural Language Processing and Artificial Intelligence for Cyber Security
+# url: "https://test.github.io"
+baseurl: "conf-nlpaics-2024"
+twitter_username: username
+github_username: dml2611
+search: true
 
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          rgb(79,177,186)
@@ -72,3 +79,42 @@ compress_html:
 
 sass:
   style:               compressed
+# Build settings
+theme: jekyll-theme-hydejack
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+menu:
+  - title: Home
+    url:   /home/
+  - title: Programme
+    url:   /programme/
+  # - title: Important Dates
+  #   url:   /dates/
+  # - title: Calls
+  #   url:   /calls/
+  # - title: Submissions
+  #   url:   /submissions/
+  - title: Registration
+    url:   /registration/
+  - title: Venue
+    url:   /venue/
+  - title: Keynote Speakers
+    url:   /keynote-speakers/
+  - title: Committees
+    url:   /committees/
+  - title: Sponsors
+    url:   /sponsors/
+  - title: Contact Us
+    url:   /contact/
+
+slideshow:
+  - /assets/img/image_1.jpg
+  - /assets/img/image_2.jpg
+  - /assets/img/image_3.jpg
+  - /assets/img/image_4.jpg

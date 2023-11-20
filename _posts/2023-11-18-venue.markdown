@@ -1,0 +1,9 @@
+---
+layout: page
+title: Venue
+permalink: /venue/
+---
+George Fox building
+{% include slideshow-venue.html %}
+
+{% include left-tab.html %}
