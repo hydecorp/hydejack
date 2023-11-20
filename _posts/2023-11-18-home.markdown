@@ -1,0 +1,15 @@
+---
+layout: page
+title: Home
+permalink: /home/
+---
+{% include left-tab.html %}
+<br>
+Welcome to the website for the First International Conference on Natural Language Processing and Artificial Intelligence for Cyber Security (NLPAICS 2024).
+
+Recent advances in Natural Language Processing (NLP), Deep Learning and Large Language Models have resulted in improved performance of applications benefiting from these techniques.  
+In particular, in there has been a growing interest of employing AI methods in different Cyber Security applications.
+
+In today's digital world Cyber Security has emerged and its importance has magnified, becoming a priority for both individual users and organisations.  With the exponential growth of the volume of information online, traditional security approaches often fall short in identifying and preventing evolving security threats. The inadequacy of conventional security frameworks highlights the need for innovative solutions that can effectively navigate the complex digital landscape for ensuring robust security. NLP and AI in Cyber Security have vast potential to significantly enhance threat detection and mitigation by fostering the development of advanced security systems for autonomous identification, assessment, and response to security threats in real-time. Recognising this challenge and the capabilities of NLP and AI approaches to fortify cyber security systems, the First International Conference on Natural Language Processing (NLP) and Artificial Intelligence (AI) for Cyber Security (NLPAICS 2024) offers to act as a meeting point for researchers working on NLP and AI methods for Cyber Security and welcomes contributions reporting latest solutions based on NLP and AI to mitigate the risks when processing digital information. 
+
+For any initial queries, please feel free to contact Prof Ruslan Mitkov on r.mitkov@lancaster.ac.uk. 
