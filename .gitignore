@@ -1,10 +1,5 @@
-node_modules
-vendor
-.bundle
+_site
 .sass-cache
-.jekyll-metadata
 .jekyll-cache
-*.gem
-
-#<removed/js>
-#<removed/css>
+.jekyll-metadata
+vendor
