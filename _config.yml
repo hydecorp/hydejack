@@ -4,7 +4,7 @@ email:
 description: >- # this means to ignore newlines until "baseurl:"
   Natural Language Processing and Artificial Intelligence for Cyber Security
 # url: "https://test.github.io"
-baseurl: "conference.github.io"
+baseurl: /
 twitter_username: username
 github_username: dml2611
 search: true
