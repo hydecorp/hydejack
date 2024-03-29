@@ -87,6 +87,6 @@
   },
   "homepage": "https://hydejack.com/",
   "engines": {
-    "node": ">=11"
+    "node": "==18"
   }
 }
