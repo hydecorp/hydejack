@@ -1,43 +1,43 @@
 {% if site.google_analytics %}
-  <script>!function(w, d) {
-    w.ga=w.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+<script>!function (w, d) {
+        window.dataLayer = w.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    /*{% if site.hydejack.cookies_banner %}*/
-      if (navigator.CookiesOK) {
-        ga('create', '{{ site.google_analytics }}', 'auto');
-      } else if (d.cookie.indexOf("hy--cookies-ok=true") > -1) {
-        ga('create', '{{ site.google_analytics }}', {
-          'storage': 'none',
-          'clientId': localStorage ? localStorage.getItem('ga--client-id') : undefined
+        function gtagConsentDefaultOff() {
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            });
+        };
+
+        function gtagConsentUpdateOn() {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        };
+
+        /*{% if site.hydejack.cookies_banner %}*/
+        if (navigator.CookiesOK) {
+            /* CookiesOK is not part of the navigator spec, not sure when this is true (extensions?) */
+            /* noop - we activate below */
+        } else if (d.cookie.indexOf("hy--cookies-ok=true") > -1) {
+            /* if cookies are opt-in only and opted for */
+            gtagConsentUpdateOn();
+        } else {
+            /* consent required and not yet given */
+            gtagConsentDefaultOff();
+        }
+        /*{% endif %}*/
+
+        /* start tracking will respect consent if set */
+        gtag('config', '{{ site.google_analytics }}');
+
+        d.addEventListener('hy--cookies-ok', function () {
+            gtagConsentUpdateOn();
         });
-      } else {
-        ga('create', '{{ site.google_analytics }}', {
-          'storage': 'none'
-        });
-        ga('set', 'forceSSL', true);
-        ga('set', 'anonymizeIp', true);
-      }
-    /*{% else %}*/
-      ga('create', '{{ site.google_analytics }}', 'auto');
-    /*{% endif %}*/
 
-    var pushStateEl = d.getElementById('_pushState');
-    var timeoutId;
-    pushStateEl.addEventListener('hy-push-state-load', function() {
-      w.clearTimeout(timeoutId);
-      timeoutId = w.setTimeout(function() {
-        ga('set', 'page', w.location.pathname);
-        ga('send', 'pageview');
-      }, 500);
-    });
-
-    d.addEventListener('hy--cookies-ok', function () {
-      w.ga(function(tracker) {
-        w.ga("set", "anonymizeIp", undefined);
-        localStorage && localStorage.setItem("ga--client-id", tracker.get("clientId"));
-      });
-    });
-
-    w.loadJSDeferred('https://www.google-analytics.com/analytics.js');
-  }(window, document);</script>
+        w.loadJSDeferred('https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}');
+    }(window, document);</script>
 {% endif %}
