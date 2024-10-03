@@ -69,3 +69,19 @@ compress_html:
 
 sass:
   style:               compressed
+
+# Setting a giscus data will enable the comment section on
+# pages with `comments: true` in the front matter.
+# See documentation for more information: https://giscus.app
+giscus:
+  repo:                username/repo
+  repo_id:             R_some_repo_id
+  category:            MyCategory
+  category_id:         DIS_some_category_id
+  mapping:             pathname
+  strict:              0
+  reactions_enabled:   1
+  emit_metadata:       0
+  input_position:      bottom
+  theme:               preferred_color_scheme
+  lang:                en

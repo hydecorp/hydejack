@@ -22,3 +22,22 @@
   }
 }(window, document);</script>
 {% endif %}
+
+{% assign giscus = site.giscus %}
+{% if giscus %}
+<script src="https://giscus.app/client.js"
+        data-repo="{{ giscus.repo }}"
+        data-repo-id="{{ giscus.repo_id }}"
+        data-category="{{ giscus.category }}"
+        data-category-id="{{ giscus.category_id }}"
+        data-mapping="{{ giscus.mapping }}"
+        data-strict="{{ giscus.strict }}"
+        data-reactions-enabled="{{ giscus.reactions_enabled }}"
+        data-emit-metadata="{{ giscus.emit_metadata }}"
+        data-input-position="{{ giscus.input_position }}"
+        data-theme="{{ giscus.theme }}"
+        data-lang="{{ giscus.lang }}"
+        crossorigin="anonymous"
+        async>
+</script>
+{% endif %}
